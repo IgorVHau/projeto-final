@@ -1,52 +1,55 @@
 import React, { useEffect, useState } from "react"
 import {View, Text, Image, TouchableOpacity , ScrollView} from "react-native"
+import { useNavigation } from "@react-navigation/native"
+
 import api from "../../Service/api"
 import styles from "./style"
 
-
 const Home = () => {
 
-const [products, setProducts] = useState([])
+  const navigation = useNavigation();
 
-  useEffect(() => {
-    api.get(`/produto`)
-      .then(res => {
-        const prod = res.data;
-        setProducts(prod)
-      })
-  }, [])
+  const [products, setProducts] = useState([])
 
-  return (
-    <>
+    useEffect(() => {
+      api.get(`/produto`)
+        .then(res => {
+          const prod = res.data;
+          setProducts(prod)
+        })
+    }, [])
 
-    <ScrollView>
-    
-        {products.map(produto => (
-          <View style={styles.container} key={produto.id}>
-            <Image source={{uri: produto.fotoLink}} style={styles.imagem} />
-            
-            <View style={styles.cargocontainer}>
-              <Text style={styles.nome}>{produto.nome}</Text>
-               
-               <View style={styles.idadecontariner}>
-                <Text style={styles.cargo}>bundamole</Text>
+    return (
+      <>
 
-                <Text style={styles.cargo}>10</Text>
-               </View>
+      <ScrollView>
+      
+          {products.map(produto => (
+            <View style={styles.container} key={produto.id}>
+              <Image source={{uri: produto.fotoLink}} style={styles.imagem} />
               
+              <View style={styles.cargocontainer}>
+                <Text style={styles.nome}>{produto.nome}</Text>
+                
+                <View style={styles.idadecontainer}>
+                  <Text style={styles.cargo}>{produto.descricao} </Text>
 
-              <TouchableOpacity style={styles.button}
-                onPress={() =>
-                  props.navigation.navigate('Profile', produto)}>
-                    <Text>Perfil</Text>
-              </TouchableOpacity>
+                  <Text style={styles.cargo}>{produto.qtdEstoque}</Text>
+                </View>
+                
 
+                <TouchableOpacity style={styles.button}
+                  onPress={() =>
+                    navigation.navigate('Login', produto)}>
+                      <Text>Perfil</Text>
+                </TouchableOpacity>
+
+              </View>
             </View>
-          </View>
-        ))}
-      </ScrollView>
-    </>
-  );
-}
+          ))}
+        </ScrollView>
+      </>
+    );
+  }
 
 export default Home
