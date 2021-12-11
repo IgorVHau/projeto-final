@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, } from "react-native";
+import { useNavigation } from "@react-navigation/native"
 
 
 export default function Login(){
+  //Ferramenta para acessar navegação
+  const navigation = useNavigation();
+
+  //Criar estados para acessar e-mail e senha
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
 return (
   <KeyboardAvoidingView style={styles.background}>
     <View style={styles.containerLogo}>
@@ -12,23 +20,33 @@ return (
     <View style={styles.container}>
       <TextInput
       style={styles.imput}
+      value={email}
       placeholder="Email"
       autoCorrrect={false}
-      onChangeText={() => {}} 
+      onChangeText={setEmail} 
       />
 
       <TextInput
       style={styles.imput}
+      value={senha}
       placeholder="Senha"
       autoCorrrect={false}
-      onChangeText={() =>{}} 
+      onChangeText={setSenha} 
       />
 
-      <TouchableOpacity style={styles.btnSubmit}>
+      <TouchableOpacity 
+        style={styles.btnSubmit}
+        onPress={() =>
+        navigation.navigate('Home')}
+      >
         <Text style={styles.submitText}>Acessar</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.btnRegister}>
+      <TouchableOpacity 
+        style={styles.btnRegister}
+        onPress={() =>
+        navigation.navigate('Cadastro')}
+      >
         <Text style={styles.registerText}>Criar conta</Text>
       </TouchableOpacity>
 
