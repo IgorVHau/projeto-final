@@ -37,7 +37,7 @@ return (
       <TouchableOpacity 
         style={styles.btnSubmit}
         onPress={() =>
-        navigation.navigate('Home')}
+        navigation.navigate('Usuario')}
       >
         <Text style={styles.submitText}>Acessar</Text>
       </TouchableOpacity>
