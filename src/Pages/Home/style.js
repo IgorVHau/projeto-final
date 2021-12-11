@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
     },
-    idadecontariner:{
+    idadecontainer:{
         flexDirection: 'row',
         alignItems: 'center',
     },
