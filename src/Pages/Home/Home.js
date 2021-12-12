@@ -1,26 +1,63 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import {View, Text, Image, TouchableOpacity , ScrollView} from "react-native"
 import { useNavigation } from "@react-navigation/native"
 
 import api from "../../Service/api"
 import styles from "./style"
+import { AuthContext } from "../../context/authContext"
 
 const Home = () => {
 
-  const navigation = useNavigation();
+    const navigation = useNavigation();
 
-  const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([])
 
+    /*//Acessar o método setUsuario
+    const {setUser} = useContext(AuthContext);
+
+    //Acesso a requisição API (dados salvos no app)
     useEffect(() => {
+    async function getList() {
+      try {
+        const response = await api.get("/produto")
+
+      } catch(error) 
+
+    }
+    }, [])*/
+
+    //Acessar o método setUsuário
+    const { setUser } = useContext(AuthContext);
+
+    //Acesso a requisição API (dados salvos no aplicativo)
+    useEffect(() => {
+      async function getList() {
+        try {
+          const response = await api.get(`/produto`);
+          setProducts(response.data);
+
+        } catch(error) {
+          console.log(error);
+        }
+      }
+        getList();
+    }, [])
+
+    /* useEffect(() => {
       api.get(`/produto`)
         .then(res => {
           const prod = res.data;
           setProducts(prod)
         })
-    }, [])
+    }, []) */
 
     return (
       <>
+      <View>
+        <TouchableOpacity 
+        style={styles.logOut}
+        onPress={async() => {setUser(null)}}>Sair</TouchableOpacity>
+      </View>
 
       <ScrollView>
       
@@ -50,6 +87,6 @@ const Home = () => {
         </ScrollView>
       </>
     );
-  }
+}
 
 export default Home

@@ -13,7 +13,8 @@ export default function AppRoutes() {
         <Stack.Navigator>
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Cadastro" component={Cadastro} />
-            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Login" component={Login} options={{ title: 'Sign In', cardShadowEnabled: 'true' }}/>
+
         </Stack.Navigator>
     )
 }

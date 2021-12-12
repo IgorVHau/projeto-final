@@ -1,16 +1,21 @@
 import React from 'react';
 import { createDrawerNavigator } from "@react-navigation/drawer";
+
 import Usuario from '../src/Pages/Usuario/Usuario';
+import Home from '../src/Pages/Home/Home';
 
 const Drawer = createDrawerNavigator();
 
 export default function AppDrawerRoutes() {
     return (
         <Drawer.Navigator 
-            screenOptions={{ headerShown: false, drawerPosition: 'left'}}>
+            screenOptions={{ drawerPosition: 'left'}}>
                 <Drawer.Screen 
-                    name= 'Usuario' /* Profile */
-                    component={Usuario}
+                    name= 'Usuario' 
+                    component={Usuario}/>
+                <Drawer.Screen
+                    name= 'Home'
+                    component={Home}
                 />
         </Drawer.Navigator>
     )

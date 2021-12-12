@@ -2,6 +2,15 @@ import { StyleSheet } from "react-native"
 
 
 const styles = StyleSheet.create({
+    logOut: {
+        justifyContent: 'flex-end',
+        fontSize: 20,
+        alignItems: 'center',
+        width: 100,
+        height: 25,
+        borderRadius: 10,
+        margin: 15
+    },
     container: {
         flexDirection: 'row',
         marginTop: '5%',
