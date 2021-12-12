@@ -4,6 +4,8 @@ import {
   Text,
   View,
   Image,
+  TextInput,
+  TouchableOpacity,
 } from 'react-native';
 
 export default class UserProfileView extends Component {
@@ -25,15 +27,19 @@ export default class UserProfileView extends Component {
           <View style={styles.body}>
             <View style={styles.item}>
               <View style={styles.iconContent}>
-                <Image style={styles.icon} source={{uri: 'https://img.icons8.com/color/70/000000/cottage.png'}}/>
               </View>
               <View style={styles.infoContent}>
-                <Text style={styles.info}>Home</Text>
+               {/*  <Text style={styles.info}>Home</Text> */} 
               </View>
             </View>
 
+            <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>Logout</Text>
+                </TouchableOpacity> 
 
           </View>
+
+          
       </View>
     );
   }
@@ -90,7 +96,23 @@ const styles = StyleSheet.create({
   },
   info:{
     fontSize:18,
-    marginTop:20,
+    marginTop:150,
     color: "bold",
-  }
+  },
+  button: {
+    width: '70%',
+    height: 50,
+    backgroundColor: '#FFF',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#333333',
+    marginVertical: 15,
+    marginTop: 320,
+    justifyContent: 'center'
+  },
+buttonText: {
+    textAlign: 'center',
+    fontSize: 20,
+  } 
+
 });
