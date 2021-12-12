@@ -12,7 +12,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <AuthProvider>
-        <Routes />
+        <AppDrawerRoutes/>
+        {/*  <Routes /> */}
       </AuthProvider>
     </NavigationContainer>
   );
