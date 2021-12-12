@@ -77,8 +77,8 @@ const Home = () => {
 
                 <TouchableOpacity style={styles.button}
                   onPress={() =>
-                    navigation.navigate('Login', produto)}>
-                      <Text>Perfil</Text>
+                    navigation.navigate('Cart', produto)}>
+                      <Text>Carrinho</Text>
                 </TouchableOpacity>
 
               </View>
