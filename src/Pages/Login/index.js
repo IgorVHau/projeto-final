@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, } from "react-native";
-import { useNavigation } from "@react-navigation/native"
+import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AuthContext } from "../../context/authContext"
+import api from "../../Service/api";
 
 
 export default function Login(){
@@ -9,7 +12,23 @@ export default function Login(){
 
   //Criar estados para acessar e-mail e senha
   const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+  /* const [senha, setSenha] = useState(''); */
+  const [cpf, setCpf] = useState('');
+
+  function handleLogin(props) {
+    try {
+      const user = {
+        email,
+        /* senha */
+        cpf
+      };
+      setUser(user);
+    /*   await AsyncStorage.setItem('USER', JSON.stringify(user)); */
+    }catch(error){
+      console.log(error)
+    }
+
+  }
 
 return (
   <KeyboardAvoidingView style={styles.background}>
@@ -28,16 +47,20 @@ return (
 
       <TextInput
       style={styles.imput}
-      value={senha}
+      /* value={senha} */
+      value={cpf}
       placeholder="Senha"
       autoCorrrect={false}
-      onChangeText={setSenha} 
+      autoComplete="off"
+      contextMenuHidden="true"
+      /* onChangeText={setSenha}  */
+      onChangeText={setCpf}
       />
 
       <TouchableOpacity 
         style={styles.btnSubmit}
         onPress={() =>
-        navigation.navigate('Usuario')}
+        /* navigation.navigate('Home') */ handleLogin()}
       >
         <Text style={styles.submitText}>Acessar</Text>
       </TouchableOpacity>
