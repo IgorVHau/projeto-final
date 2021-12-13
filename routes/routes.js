@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import AppRoutes from "./app.routes";
 import AppDrawerRoutes from "./app.drawer.routes";
 import { AuthContext } from "../src/context/authContext";
+import AppDrawerRoutes from "./app.drawer.routes";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Routes = () => {
