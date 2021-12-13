@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native"
 import api from "../../Service/api"
 import styles from "./style"
 import { AuthContext } from "../../context/authContext"
+import ItemSeparator from "../../Components/ItemSeparator"
 
 const Home = () => {
 
@@ -53,37 +54,38 @@ const Home = () => {
 
     return (
       <>
-      <View>
-        <TouchableOpacity 
-        style={styles.logOut}
-        onPress={async() => {setUser(null)}}>Sair</TouchableOpacity>
-      </View>
+      
 
       <ScrollView>
       
+        <View style={styles.container}>
           {products.map(produto => (
-            <View style={styles.container} key={produto.id}>
+            
+            <View style={styles.cardContainer} key={produto.id}>
               <Image source={{uri: produto.fotoLink}} style={styles.imagem} />
               
-              <View style={styles.cargocontainer}>
+              <View style={styles.title}>
                 <Text style={styles.nome}>{produto.nome}</Text>
                 
-                <View style={styles.idadecontainer}>
-                  <Text style={styles.cargo}>{produto.descricao} </Text>
+                <View style={styles.desc}>
+                  <Text style={styles.desc}>{produto.descricao} </Text>
 
-                  <Text style={styles.cargo}>{produto.qtdEstoque}</Text>
-                </View>
-                
+                  <Text style={styles.price}>R${produto.valor}</Text>
 
-                <TouchableOpacity style={styles.button}
+                  <TouchableOpacity style={styles.button}
                   onPress={() =>
-                    navigation.navigate('Cart', produto)}>
-                      <Text>Carrinho</Text>
+                    navigation.navigate("Cart", produto)}>
+                      <Text>Add Carrinho</Text>
                 </TouchableOpacity>
+
+                </View>
 
               </View>
             </View>
+            
           ))}
+          </View>
+          <ItemSeparator />
         </ScrollView>
       </>
     );

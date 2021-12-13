@@ -1,5 +1,6 @@
-import { StyleSheet } from "react-native"
+import { StyleSheet, Dimensions } from "react-native"
 
+const deviceWidth = Math.round(Dimensions.get("window").width)
 
 const styles = StyleSheet.create({
     logOut: {
@@ -12,65 +13,76 @@ const styles = StyleSheet.create({
         margin: 15
     },
     container: {
+        paddingTop: 10,
         flexDirection: 'row',
-        marginTop: '5%',
-        height: 130,
-        marginRight: '5%',
-        marginLeft: '5%',
-        backgroundColor: '#F4F5E8',
-        borderRadius: 10,
+        width: deviceWidth - 50,
+        height: "auto",
+        margin: "auto",
+        textAlign: "center",
+        alignSelf: "center",
+        flexWrap: "wrap",
+    },
+    cardContainer:{
+        width: "100%",
+        borderRadius: 50,
+        height: 350,
         borderWidth: 2,
         borderColor: '#000',
+        marginBottom: '5%',
+        backgroundColor: "#fff",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 5,
+            heigth: 5,
+        },
+        shadowOpacity: 0.75,
+        shadowRadius: 5,
+        elevation: 9
+        
     },
     imagem: {
-        margin: '1%',
-        height: '95%',
-        width: '30%',
-        borderRadius: 10,
-        borderWidth: 3,
-        borderColor: '#2EC93D',
-    },
-    imagemHeader: {
-        width: "100%",
-        height: 170,
+        resizeMode: "contain",
+        height: 200,
+        borderTopRightRadius: 50,
+        borderTopLeftRadius: 50
+
     },
     nome: {
-        marginTop: 20,
         justifyContent: 'center',
         fontSize: 25,
-        fontWeight: '800'
+        fontWeight: '800',
+        textAlign: "center"
     },
-    cargocontainer: {
-        width: 250,
-        flexDirection: 'column',
-        alignItems: 'center',
+
+    title: {
+        fontSize: 25,
+        width: "100%",
     },
-    idadecontainer:{
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    cargo: {
+    desc:{
+        paddingBottom: 5,
+        paddingTop: 5,
         fontSize: 15,
-        fontWeight: '600',
-        alignItems: 'center',
+        width: "100%",
+        textAlign: "center"
     },
-    button: {  
-        borderBottomColor: '#000', 
-        marginTop: 20,
-        backgroundColor: '#FB955C',
+    price:{
+        fontSize: 20,
+        width: "100%",
+        textAlign: "center",
+        paddingBottom: 10
+    },
+    button: {   
+        backgroundColor: '#1FB550',
         borderRadius: 5,
         height: 25,
         width: 100,
+        margin: "auto",
         alignItems: 'center',
         borderWidth: 2,
         borderColor: '#000',
+        alignSelf: "center",
     },
-    separator: {
-        flexDirection: 'row',
-        marginLeft: 8,
-        marginRight: 8,
-        alignItems: 'center',
-    },   
+
 })
 
 export default styles;

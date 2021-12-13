@@ -33,12 +33,11 @@ export default class UserProfileView extends Component {
               </View>
             </View>
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={async() => {setUser(null)}}>
                     <Text style={styles.buttonText}>Logout</Text>
                 </TouchableOpacity> 
 
           </View>
-
           
       </View>
     );
@@ -97,7 +96,7 @@ const styles = StyleSheet.create({
   info:{
     fontSize:18,
     marginTop:150,
-    color: "bold",
+
   },
   button: {
     width: '70%',
