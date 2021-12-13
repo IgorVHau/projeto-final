@@ -7,7 +7,7 @@ const Routes = () => {
 
     const {user, setUser} = useContext(AuthContext);
 
-    /* useEffect(() => {
+    useEffect(() => {
         const getUser = async () => {
             try {
                 const value = await AsyncStorage.getItem('USER');
@@ -20,12 +20,11 @@ const Routes = () => {
             }
         }
         getUser()
-    }, []) */
+    }, []) 
 
     return (
         <>
-            {/* <AppRoutes /> */}
-            {user !== null ? <AppDrawerRoutes /> : <AppRoutes />}
+          {user !== null ? <AppDrawerRoutes /> : <AppRoutes />}
         </>
     )
 }
